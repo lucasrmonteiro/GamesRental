@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  gamesrental:
+    image: ${DOCKER_REGISTRY-}gamesrental
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - gamesrental-mssql
+
+  gamesrental-mssql:
+    image: luizcarlosfaria/mssql-server-linux
+    container_name: gamesrental-mssql
+    ports:
+      - 1433:1433
+    networks:
+      - overlay
+    environment:
+      SA_PASSWORD: mh.com123!
+      MSSQL_DATABASE: gamesrentaldb
+      MSSQL_USER: gamesrental
+      MSSQL_PASSWORD: trocar123
+      MSSQL_PID: Developer 
+      ACCEPT_EULA: Y
+
+
+networks:
+  overlay:

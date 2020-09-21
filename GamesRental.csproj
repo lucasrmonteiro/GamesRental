@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>351c034f-ee8f-4342-9b7f-6d97d4dd517b</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+    <DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Application.IoC\**" />
+    <Compile Remove="GamesRental.Aplication\**" />
+    <Compile Remove="GamesRental.Domain\**" />
+    <Compile Remove="GamesRental.Infra\**" />
+    <Content Remove="Application.IoC\**" />
+    <Content Remove="GamesRental.Aplication\**" />
+    <Content Remove="GamesRental.Domain\**" />
+    <Content Remove="GamesRental.Infra\**" />
+    <EmbeddedResource Remove="Application.IoC\**" />
+    <EmbeddedResource Remove="GamesRental.Aplication\**" />
+    <EmbeddedResource Remove="GamesRental.Domain\**" />
+    <EmbeddedResource Remove="GamesRental.Infra\**" />
+    <None Remove="Application.IoC\**" />
+    <None Remove="GamesRental.Aplication\**" />
+    <None Remove="GamesRental.Domain\**" />
+    <None Remove="GamesRental.Infra\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Application.IoC\Application.IoC.csproj" />
+    <ProjectReference Include="GamesRental.Aplication\GamesRental.Aplication.csproj" />
+    <ProjectReference Include="GamesRental.Domain\GamesRental.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
